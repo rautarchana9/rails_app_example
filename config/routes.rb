@@ -1,4 +1,7 @@
 ExpApp::Application.routes.draw do
+  get "static_pages/home"
+  get "static_pages/create"
+  get "static_pages/schedule"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
