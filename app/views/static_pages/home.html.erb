@@ -1,2 +1,22 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<h1>Welcome to Loan Scheduler</h1>
+<%= form_tag do%>
+  <%= label_tag(:name, "Borrower Name:")%>
+  <%= text_field_tag(:name) %>
+  <%= label_tag(:number, "Loan number:")%>
+  <%= text_field_tag(:number) %>
+  <%= label_tag(:amount, "Principal loan amount:")%>
+  <%= text_field_tag(:amount) %>
+  <%= label_tag(:cldate, "Closing date:")%>
+  <%= text_field_tag(:cldate) %>
+  <%= label_tag(:fidate, "First payment date:")%>
+  <%= text_field_tag(:fidate) %>
+  <%= label_tag(:rate, "Interest rate(annual):")%>
+  <%= text_field_tag(:rate) %>
+  <%= label_tag(:term, "Term:")%>
+  <%= text_field_tag(:term) %>
+  <%= radio_button_tag(:type, "Type1") %>
+  <%= label_tag(:business_loan, "Business Loan") %>
+  <%= radio_button_tag(:type, "Type2") %>
+  <%= label_tag(:credit_loan, "Credit Loan") %>
+  <%= submit_tag("schedule")%>
+<% end %>
