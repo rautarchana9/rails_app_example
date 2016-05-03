@@ -7,4 +7,8 @@ class StaticPagesController < ApplicationController
 
   def schedule
   end
+
+  def redirect_after_filling_in_details
+
+  end
 end
