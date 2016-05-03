@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502081329) do
+ActiveRecord::Schema.define(version: 20160503064918) do
 
   create_table "loans", force: true do |t|
     t.string   "borrower_name"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160502081329) do
     t.date     "first_payment_date"
     t.integer  "interest_rate"
     t.integer  "term"
-    t.string   "type"
+    t.string   "loan_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
