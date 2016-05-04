@@ -25,4 +25,14 @@ RSpec.describe Loan, type: :model do
       expect((loan).monthly_payment).to eql(438.71)
     end
   end
+  describe "generate_schedule" do
+    it "should return the payment schedule for the loan along with summary of loan details" do
+      loan = Loan.new()
+      loan.principal_loan_amount = 10000
+      loan.interest_rate = 5
+      loan.term = 2
+      loan.closing_date = Date.parse("2016-05-2")
+      expect((loan).generate_schedule).to eql([[Date.parse("2016-07-2"),5031.27],[Date.parse("2016-08-2"),5031.27 ]] )
+    end  
+  end
 end

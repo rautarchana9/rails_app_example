@@ -13,4 +13,17 @@ class Loan < ActiveRecord::Base
     b = 1 - (1 + monthly_rate)**(-self.term)
     annuity = (a / b).round(2)
   end
+  def generate_schedule
+    sleep(10)
+    schedule = []
+    monthly_payment_amount = monthly_payment
+    next_payment_date = self.closing_date >> 1
+    for month in 1..self.term
+      monthly_schedule = []
+      next_payment_date = next_payment_date >> 1
+      monthly_schedule << next_payment_date << monthly_payment_amount
+      schedule << monthly_schedule
+    end
+    schedule
+  end
 end
