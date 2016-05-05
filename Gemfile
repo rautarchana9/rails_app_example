@@ -57,3 +57,5 @@ end
 
 # Bootstrap gem for responsive pages
   gem 'bootstrap-sass', '3.2.0.0'
+# bootstrap form gem 
+  gem 'bootstrap_form', '~> 2.3.0'

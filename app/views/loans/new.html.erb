@@ -1,2 +1,18 @@
-<h1>Loans#new</h1>
-<p>Find me in app/views/loans/new.html.erb</p>
+<h1>Loans Scheduler</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3" id="loan_form">
+    <h3>Enter Loan Details</h3>
+    <%= bootstrap_form_for(@loan,layout: :horizontal) do |f| %>
+    <%= f.text_field :borrower_name,label: "Name"%>
+    <%= f.number_field :loan_number,label: "Loan ID" %>
+    <%= f.number_field :principal_loan_amount,label: "Principal",prepend: "$", append: ".00" %>
+    <%= f.date_field :closing_date,label: "Closing Date" %>
+    <%= f.date_field :first_payment_date,label: "First Payment Date" %>
+    <%= f.number_field :interest_rate,label: "Interest Rate",append: "% Per Annum" %>
+    <%= f.number_field :term,label: "Term",append: "Months" %>
+    <%= f.select :loan_type, [["Business Loan", "Business"], ["Credit Loan", "Credit"]], { label: "Loan Type :" } %>
+
+    <%= f.submit "Display Payment Schedule", class: "btn btn-primary center-block" %>
+    <% end %>
+  </div>
+</div>

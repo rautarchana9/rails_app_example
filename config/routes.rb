@@ -1,15 +1,13 @@
 ExpApp::Application.routes.draw do
-  get "loans/new"
-  get "loans/create"
+  resources :loans
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   #  root 'application#hello'
-    root 'static_pages#home'
-    get 'static_pages/create'
-    get 'static_pages/schedule'
-
+    root 'loans#new'
+    post '/' => 'loans#create'
+    post '/loans/new' => 'loans#create'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
