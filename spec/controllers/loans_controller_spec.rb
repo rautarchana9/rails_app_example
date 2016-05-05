@@ -9,13 +9,6 @@ RSpec.describe LoansController, type: :controller do
     end
   end
 
-  describe "POST #create" do
-    it "returns http success" do
-      post :create
-      expect(response).to have_http_status(:success)
-    end
-  end
-
   describe "GET #new" do
     it "returns a new instance of loan object" do
       get :new
@@ -24,7 +17,7 @@ RSpec.describe LoansController, type: :controller do
   end
   
   describe "#create" do
-      before {post :create, {borrower_name: "Anonymous",loan_number: 7788,principal: 1000,closing_date: Date.parse('2016-05-2'),rate: 5, term: 2, loan_type: "Credit"}}
-      specify("one model created") { change{Loan.count}.from(0).to(1)}
+    before {post :create, {borrower_name: "Anonymous",loan_number: 7788,principal_loan_amount: 1000,closing_date: Date.parse('2016-05-2'), first_payment_date: Date.parse('2016-05-2'), interest_rate: 5, term: 2, loan_type: "Credit"}}
+    specify("one model created") { change{Loan.count}.from(0).to(1)}
   end
 end
