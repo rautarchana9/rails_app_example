@@ -1,2 +1,7 @@
-<h1>Loans#create</h1>
-<p>Find me in app/views/loans/create.html.erb</p>
+<h1>Loan Payment Schedule</h1>
+<% @schedule.each do |entry| %>
+  <% entry.each do |field| %>
+    <%= field%>
+  <% end %>
+  </br>
+<% end %>  

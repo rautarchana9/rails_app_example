@@ -10,7 +10,6 @@
     <%= f.number_field :interest_rate,label: "Interest Rate",append: "% Per Annum" %>
     <%= f.number_field :term,label: "Term",append: "Months" %>
     <%= f.select :loan_type, [["Business Loan", "Business"], ["Credit Loan", "Credit"]], { label: "Loan Type :" } %>
-
     <%= f.submit "Display Payment Schedule", class: "btn btn-primary center-block" %>
     <% end %>
   </div>

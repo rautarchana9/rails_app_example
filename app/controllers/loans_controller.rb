@@ -7,8 +7,8 @@ class LoansController < ApplicationController
     @loan = Loan.new(loan_params)
     if @loan.valid?
       @loan.save
-      thread = Thread.new{@loan.generate_schedule}
-      at_exit {thread.join}
+      thread = Thread.new{@schedule = @loan.generate_schedule}
+      thread.join
     else
       render 'new'
     end

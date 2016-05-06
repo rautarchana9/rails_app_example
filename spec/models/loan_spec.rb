@@ -18,7 +18,7 @@ RSpec.describe Loan, type: :model do
   #it { should validate_inclusion_of (:loan_type).in_array(["Business", "Credit"])}
   describe "monthly_payment" do
     it "should return the monthly payment to be done towards loan" do
-      loan = Loan.new()
+      loan = Loan.new
       loan.principal_loan_amount = 10000
       loan.interest_rate = 5
       loan.term = 24
@@ -27,7 +27,7 @@ RSpec.describe Loan, type: :model do
   end
   describe "generate_schedule" do
     it "should return the payment schedule for the loan along with summary of loan details" do
-      loan = Loan.new()
+      loan = Loan.new
       loan.principal_loan_amount = 10000
       loan.interest_rate = 5
       loan.term = 2
