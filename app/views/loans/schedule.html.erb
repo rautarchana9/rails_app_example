@@ -37,7 +37,12 @@
      </tr>
 
     <% @schedule.each do |entry| %>
-     <tr>
+      <tr>
+        <td><%= entry["next_payment_date"] %>
+        <td><%= entry["balance"] %>
+        <td><%= entry["principal_payment"] %>
+        <td><%= entry["balance"] %>
+        <td><%= entry["end_balance"] %>
      </tr>
     <% end %>
    </tbody>
