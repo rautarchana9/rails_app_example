@@ -4,3 +4,8 @@
 #status-bar {
   display: none;
 }
+#progress_bar {
+ width: 0;
+ background: #FF0000;
+ overflow: hidden;
+}

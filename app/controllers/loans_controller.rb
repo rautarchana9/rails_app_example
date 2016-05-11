@@ -7,10 +7,20 @@ class LoansController < ApplicationController
     @loan = Loan.new(loan_params)
     if @loan.valid?
       @loan.save
-      thread = Thread.new{@schedule = @loan.generate_schedule}
-      thread.join
+      @schedule = @loan.generate_schedule
+      background_thread = Thread.new{@loan.update_progress}
+      redirect_to :progress_loans
     else
       render 'new'
+    end
+  end
+
+  def progress
+    Thread.list.each do |thread| 
+      @progress = thread['progress']
+    end
+    unless @progress
+      render 'result'
     end
   end
 
