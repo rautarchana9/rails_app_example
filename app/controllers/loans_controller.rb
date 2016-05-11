@@ -9,7 +9,8 @@ class LoansController < ApplicationController
       @loan.save
       schedule = @loan.generate_schedule
       session[:schedule] = schedule.object_id
-      Thread.new{@loan.update_progress}
+      background_job = Thread.new{@loan.update_progress}
+      session[:background_job] = background_job.object_id
       redirect_to :progress_loans
     else
       render 'new'
@@ -17,8 +18,10 @@ class LoansController < ApplicationController
   end
 
   def progress
-    Thread.list.each do |thread| 
-      @progress = thread['progress'] 
+    Thread.list.each do |thread|
+      if thread.object_id == session[:background_job]
+        @progress = thread['progress']
+      end
     end
     unless @progress
       @schedule = ObjectSpace._id2ref(session[:schedule])
