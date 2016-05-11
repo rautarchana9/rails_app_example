@@ -7,7 +7,7 @@ class LoansController < ApplicationController
     @loan = Loan.new(loan_params)
     if @loan.valid?
       @loan.save
-      @schedule = @loan.generate_schedule
+      session[:schedule] = @loan.generate_schedule
       background_thread = Thread.new{@loan.update_progress}
       redirect_to :progress_loans
     else
@@ -20,6 +20,7 @@ class LoansController < ApplicationController
       @progress = thread['progress']
     end
     unless @progress
+      @schedule = session[:schedule]
       render 'result'
     end
   end

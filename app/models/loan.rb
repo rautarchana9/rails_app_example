@@ -36,5 +36,4 @@ class Loan < ActiveRecord::Base
        sleep 1
      end
   end
-
 end
