@@ -1,7 +1,9 @@
+<div class="container">
+  <h1>Loan Details</h1>
  <table class="table table-bordered">
     <tbody>
       <tr>
-        <th scope="row">1</th>
+        <th scope="row">#</th>
         <td>Name</td>
         <td>Loan Number</td>
         <td>Principal</td>
@@ -12,7 +14,7 @@
       </tr>
 
       <tr>
-        <th scope="row">2</th>
+        <th scope="row"></th>
         <td><%= @loan.borrower_name%></td>
         <td><%= @loan.loan_number%></td>
         <td><%= @loan.principal_loan_amount%></td>
@@ -23,9 +25,22 @@
       </tr>
    </tbody>
  </table>
-<% @schedule.each do |entry| %>
-  <% entry.each do |field| %>
-      <%= field%>
+
+ <table class="table table-bordered">
+   <tbody>
+     <tr>
+       <th>Date</th>
+       <th>Beginning Balance</th>
+       <th>Principal Payment</th>
+       <th>Total Payment</th>
+       <th>End Balance</th>
+     </tr>
+
+    <% @schedule.each do |entry| %>
+     <tr>
+     </tr>
     <% end %>
-    </br>
-<% end %>  
+   </tbody>
+ </table>
+</div>
+
