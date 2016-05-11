@@ -30,8 +30,8 @@ class Loan < ActiveRecord::Base
 
   def update_progress
      progress = 0.0
-     while progress < 0.9
-       progress += 0.1
+     while progress < 90
+       progress += 10
        Thread.current['progress'] = progress
        sleep 1
      end
