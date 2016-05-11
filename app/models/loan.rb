@@ -25,7 +25,7 @@ class Loan < ActiveRecord::Base
       monthly_schedule = {}
       monthly_schedule["balance"] = balance
       monthly_schedule["next_payment_date"] = next_payment_date
-      monthly_schedule["principal_payment"] = (monthly_payment_amount - monthly_schedule["balance"]).round(2)
+      monthly_schedule["principal_payment"] = (monthly_schedule["balance"]- monthly_payment_amount).round(2)
       balance = (balance - monthly_schedule["principal_payment"]).round(2)
       monthly_schedule["end_balance"] = balance
       schedule << monthly_schedule
