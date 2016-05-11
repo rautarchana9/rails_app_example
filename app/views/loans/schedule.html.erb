@@ -1,5 +1,28 @@
+ <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Name</td>
+        <td>Loan Number</td>
+        <td>Principal</td>
+        <td>Closing Date</td>
+        <td>Interest Rate</td>
+        <td>Term</td>
+        <td>Loan Type</td>
+      </tr>
 
-<h1>Loan Payment Schedule</h1>
+      <tr>
+        <th scope="row">2</th>
+        <td><%= @loan.borrower_name%></td>
+        <td><%= @loan.loan_number%></td>
+        <td><%= @loan.principal_loan_amount%></td>
+        <td><%= @loan.closing_date%></td>
+        <td><%= @loan.interest_rate%></td>
+        <td><%= @loan.term%></td>
+        <td><%= @loan.loan_type%></td>
+      </tr>
+   </tbody>
+ </table>
 <% @schedule.each do |entry| %>
   <% entry.each do |field| %>
       <%= field%>

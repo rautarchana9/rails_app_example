@@ -7,6 +7,7 @@ class LoansController < ApplicationController
     @loan = Loan.new(loan_params)
     if @loan.valid?
       @loan.save
+      session[:loan] = @loan.object_id
       schedule = @loan.generate_schedule
       session[:schedule] = schedule.object_id
       background_job = Thread.new{@loan.update_progress}
@@ -24,6 +25,7 @@ class LoansController < ApplicationController
       end
     end
     unless @progress
+      @loan = ObjectSpace._id2ref(session[:loan])
       @schedule = ObjectSpace._id2ref(session[:schedule])
       render 'schedule'
     end
